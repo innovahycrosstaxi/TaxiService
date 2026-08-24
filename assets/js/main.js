@@ -372,7 +372,7 @@
      Until a real key is pasted in, these fields simply work as plain
      text inputs — nothing breaks, no errors, no wasted network calls.
      ===================================================================== */
-  var GOOGLE_MAPS_API_KEY = "AIzaSyA71VypwrG3FRTtz768nrLM15dSM-KRzSs";
+  var GOOGLE_MAPS_API_KEY = "AIzaSyBQZNiEn0lMZsVoEV5cZ_3J1wwtEJ2QnZ4";
 
   function initLocationAutocomplete() {
     var inputs = document.querySelectorAll("[data-location-input]");
@@ -492,7 +492,11 @@
             return AutocompleteSuggestion.fetchAutocompleteSuggestions({
               input: query,
               includedRegionCodes: ["in"],
-              locationBias: { radius: 500000, center: DELHI_CENTER },
+              // Places API (New) caps a locationBias circle at 50,000m — this was 500000
+              // (10x over the limit), so Google rejected every request with
+              // INVALID_ARGUMENT and the .catch() below quietly closed the dropdown,
+              // which is why nothing ever appeared to be "searching."
+              locationBias: { radius: 50000, center: DELHI_CENTER },
               sessionToken: sessionToken,
             });
           })
