@@ -1,8 +1,0 @@
-Project name:Innova
-Project number:374553330723
-Project ID:innova-506006
-google api: AIzaSyA71VypwrG3FRTtz768nrLM15dSM-KRzSs
-AIzaSyA41pNJpMiCYdfTQ4hOfP7AnCrGi9tedxQ
-AIzaSyBQZNiEn0lMZsVoEV5cZ_3J1wwtEJ2QnZ4
-key=API_KEY
-
