@@ -26,6 +26,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -62,9 +63,9 @@
   },
   "areaServed": "Delhi NCR",
   "sameAs": [
-    "https://www.facebook.com/innovahycrosstaxi",
-    "https://www.instagram.com/innovahycrosstaxi",
-    "https://www.youtube.com/@innovahycrosstaxi"
+    "https://www.facebook.com/share/1CkwwrY1pN/",
+    "https://www.instagram.com/innovahycrosstaxicom",
+    "https://www.youtube.com/@INNONAHYCROSSTAXISERVICETAXISE"
   ]
 }
 </script>
@@ -212,7 +213,7 @@
   <div class="booking-widget reveal">
     <div class="booking-card">
       <div class="booking-card-head">
-        <h3>Get an Instant Quote</h3>
+        <h2>Get an Instant Quote</h2>
         <div class="tab-row" role="tablist" aria-label="Trip type">
           <button type="button" class="tab-btn is-active" data-trip-tab="Outstation">Outstation</button>
           <button type="button" class="tab-btn" data-trip-tab="Local Rental">Local Rental</button>
@@ -224,14 +225,16 @@
           <label for="pickup">Pickup Location</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <input type="text" id="pickup" name="pickup" placeholder="e.g. Dwarka, Delhi" required>
+            <input type="text" id="pickup" name="pickup" placeholder="e.g. Dwarka, Delhi" autocomplete="off" data-location-input required>
+            <div class="location-suggestions" data-suggestions-for="pickup" role="listbox"></div>
           </div>
         </div>
         <div class="field" data-drop-field>
           <label for="drop">Drop Location</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <input type="text" id="drop" name="drop" placeholder="e.g. Jaipur, Rajasthan" required>
+            <input type="text" id="drop" name="drop" placeholder="e.g. Jaipur, Rajasthan" autocomplete="off" data-location-input required>
+            <div class="location-suggestions" data-suggestions-for="drop" role="listbox"></div>
           </div>
         </div>
         <div class="field">
@@ -261,7 +264,21 @@
             <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" maxlength="10" required>
           </div>
         </div>
+        <div class="trip-estimate" data-trip-estimate>
+          <span class="trip-estimate-label">Estimated trip</span>
+          <span class="trip-estimate-spinner"></span>
+          <span class="trip-estimate-chips">
+            <span class="meter meter--light"><span data-estimate-distance>—</span></span>
+            <span class="meter meter--light"><span data-estimate-duration>—</span></span>
+          </span>
+        </div>
         <button type="submit" class="btn btn-primary booking-submit">Check Availability on WhatsApp</button>
+        <div class="form-success" data-booking-success>
+          <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <svg class="icon-fallback" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <span data-booking-success-text></span>
+        </div>
+        <p class="booking-fallback-note">Trouble booking online? Call <a href="tel:+919650694549">96506-94549</a> or <a href="https://wa.me/919650694549" target="_blank" rel="noopener">WhatsApp us</a> directly.</p>
       </form>
     </div>
   </div>
@@ -327,32 +344,32 @@
     <div class="reasons">
       <div class="card value-card reveal">
         <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
-        <h4>24/7 Availability</h4>
+        <h3>24/7 Availability</h3>
         <p>Cabs on standby round the clock, including late-night airport runs and early-morning pickups.</p>
       </div>
       <div class="card value-card reveal reveal-delay-1">
         <div class="icon-box"><i class="fa-solid fa-id-badge"></i></div>
-        <h4>Professional Drivers</h4>
+        <h3>Professional Drivers</h3>
         <p>Background-verified, experienced, and trained in courteous, safety-first driving.</p>
       </div>
       <div class="card value-card reveal reveal-delay-2">
         <div class="icon-box"><i class="fa-solid fa-tags"></i></div>
-        <h4>Affordable Pricing</h4>
+        <h3>Affordable Pricing</h3>
         <p>Transparent per-km rates with no hidden charges — you know the fare before you travel.</p>
       </div>
       <div class="card value-card reveal">
         <div class="icon-box"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-        <h4>Clean &amp; Sanitized Cars</h4>
+        <h3>Clean &amp; Sanitized Cars</h3>
         <p>Every vehicle is cleaned and sanitized before each trip for a fresh, hygienic ride.</p>
       </div>
       <div class="card value-card reveal reveal-delay-1">
         <div class="icon-box"><i class="fa-solid fa-location-crosshairs"></i></div>
-        <h4>GPS Enabled Vehicles</h4>
+        <h3>GPS Enabled Vehicles</h3>
         <p>Live location tracking on every trip, so family back home always knows you're on the way.</p>
       </div>
       <div class="card value-card reveal reveal-delay-2">
         <div class="icon-box"><i class="fa-solid fa-people-roof"></i></div>
-        <h4>Safe Family Travel</h4>
+        <h3>Safe Family Travel</h3>
         <p>Roomy 7-seater options and child-friendly service, trusted by families and pilgrims alike.</p>
       </div>
     </div>
@@ -360,7 +377,7 @@
       <div class="card value-card" style="display:flex; align-items:center; gap:16px;">
         <div class="icon-box" style="flex-shrink:0;"><i class="fa-solid fa-bolt"></i></div>
         <div>
-          <h4 style="margin-bottom:2px;">Instant Booking Support</h4>
+          <h3 style="margin-bottom:2px;">Instant Booking Support</h3>
           <p>Call or WhatsApp us any time — our team confirms your cab in minutes, not hours.</p>
         </div>
       </div>
@@ -378,7 +395,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card fleet-card reveal">
-        <div class="fleet-card-img"><img src="https://placehold.co/640x480/1F2024/E4BE68?text=Sedan&font=roboto" alt="Sedan taxi for local and outstation trips"></div>
+        <div class="fleet-card-img"><img src="assets/img/fleet-sedan.webp" alt="Sedan taxi for local and outstation trips" loading="lazy"></div>
         <div class="fleet-card-body">
           <h3>Sedan</h3>
           <div class="fleet-specs">
@@ -396,7 +413,7 @@
       <div class="card fleet-card reveal reveal-delay-1">
         <div class="fleet-card-img">
           <span class="meter" style="position:absolute; top:12px; left:12px; z-index:2;">Popular</span>
-          <img src="https://placehold.co/640x480/1F2024/E4BE68?text=SUV&font=roboto" alt="SUV taxi with driver for family trips">
+          <img src="assets/img/fleet-suv.webp" alt="SUV taxi with driver for family trips" loading="lazy">
         </div>
         <div class="fleet-card-body">
           <h3>SUV</h3>
@@ -413,7 +430,7 @@
         </div>
       </div>
       <div class="card fleet-card reveal reveal-delay-2">
-        <div class="fleet-card-img"><img src="https://placehold.co/640x480/1F2024/E4BE68?text=Innova+Crysta&font=roboto" alt="Innova Crysta taxi service Delhi NCR"></div>
+        <div class="fleet-card-img"><img src="assets/img/fleet-crysta.webp" alt="Innova Crysta taxi service Delhi NCR" loading="lazy"></div>
         <div class="fleet-card-body">
           <h3>Innova Crysta</h3>
           <div class="fleet-specs">
@@ -422,7 +439,7 @@
             <span class="spec-pill"><i class="fa-solid fa-snowflake"></i> AC</span>
           </div>
           <div class="fleet-price-row">
-            <span class="meter">₹19<span class="meter-unit">/km</span></span>
+            <span class="meter">₹20<span class="meter-unit">/km</span></span>
             <a href="book.html" class="btn btn-dark btn-sm">Book</a>
           </div>
           <span class="fleet-price-note">Starting fare, outstation trips</span>
@@ -431,7 +448,7 @@
       <div class="card fleet-card reveal">
         <div class="fleet-card-img">
           <span class="meter" style="position:absolute; top:12px; left:12px; z-index:2;">Best Seller</span>
-          <img src="https://placehold.co/640x480/0B0B0D/FFC72C?text=Innova+Hycross&font=roboto" alt="Innova Hycross taxi booking online with driver">
+          <img src="assets/img/fleet-hycross.webp" alt="Innova Hycross taxi booking online with driver" loading="lazy">
         </div>
         <div class="fleet-card-body">
           <h3>Innova Hycross</h3>
@@ -442,14 +459,14 @@
             <span class="spec-pill"><i class="fa-solid fa-snowflake"></i> AC</span>
           </div>
           <div class="fleet-price-row">
-            <span class="meter">₹22<span class="meter-unit">/km</span></span>
+            <span class="meter">₹25<span class="meter-unit">/km</span></span>
             <a href="book.html" class="btn btn-dark btn-sm">Book</a>
           </div>
           <span class="fleet-price-note">Starting fare, outstation trips</span>
         </div>
       </div>
       <div class="card fleet-card reveal reveal-delay-1">
-        <div class="fleet-card-img"><img src="https://placehold.co/640x480/1F2024/E4BE68?text=Tempo+Traveller&font=roboto" alt="Tempo Traveller rental for group trips"></div>
+        <div class="fleet-card-img"><img src="assets/img/fleet-tempo.webp" alt="Tempo Traveller rental for group trips" loading="lazy"></div>
         <div class="fleet-card-body">
           <h3>Tempo Traveller</h3>
           <div class="fleet-specs">
@@ -458,7 +475,7 @@
             <span class="spec-pill"><i class="fa-solid fa-snowflake"></i> AC</span>
           </div>
           <div class="fleet-price-row">
-            <span class="meter">₹28<span class="meter-unit">/km</span></span>
+            <span class="meter">₹25–30<span class="meter-unit">/km</span></span>
             <a href="book.html" class="btn btn-dark btn-sm">Book</a>
           </div>
           <span class="fleet-price-note">Starting fare, outstation trips</span>
@@ -517,7 +534,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow" style="justify-content:center;">Google Reviews</span>
       <h2 class="section-title">What Our Riders Say</h2>
-      <p class="section-sub">A few words from customers who booked InnovaHycrossTaxi for outstation trips, airport runs and family journeys.</p>
+      <p class="section-sub">Real Innova Hycross taxi reviews from customers who booked InnovaHycrossTaxi for outstation trips, airport runs and family journeys.</p>
     </div>
 
     <!-- Sample reviews for template purposes — replace with a live Google Reviews
@@ -578,7 +595,7 @@
 <section class="section" id="about">
   <div class="container about-grid">
     <div class="about-media reveal">
-      <img src="https://placehold.co/720x580/F1EEE6/0B0B0D?text=InnovaHycrossTaxi&font=roboto" alt="InnovaHycrossTaxi fleet and drivers in Delhi NCR">
+      <img src="https://placehold.co/720x580/F1EEE6/0B0B0D?text=InnovaHycrossTaxi&font=roboto" alt="InnovaHycrossTaxi fleet and drivers in Delhi NCR" loading="lazy">
       <div class="about-badge">
         <span class="num">10+</span>
         <span class="lbl">Years serving Delhi NCR travellers</span>
@@ -592,11 +609,11 @@
       <div class="reasons" style="grid-template-columns:1fr; gap:14px; margin-top:24px;">
         <div class="reason">
           <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
-          <div><h4>Full Delhi NCR Coverage</h4><p>Local pickups anywhere from Dwarka to Noida, plus outstation trips to 50+ cities.</p></div>
+          <div><h3>Full Delhi NCR Coverage</h3><p>Local pickups anywhere from Dwarka to Noida, plus outstation trips to 50+ cities.</p></div>
         </div>
         <div class="reason">
           <div class="icon-box"><i class="fa-solid fa-heart-circle-check"></i></div>
-          <div><h4>Customer-First Service</h4><p>Real support on call and WhatsApp — not a chatbot — before, during and after your trip.</p></div>
+          <div><h3>Customer-First Service</h3><p>Real support on call and WhatsApp — not a chatbot — before, during and after your trip.</p></div>
         </div>
       </div>
       <a href="about.html" class="btn btn-dark" style="margin-top:28px;">More About Us</a>
@@ -619,10 +636,10 @@
       <p class="section-sub">Our cars, our drivers, and moments from the road.</p>
     </div>
     <div class="grid grid-4 reveal">
-      <img src="https://placehold.co/420x420/1F2024/E4BE68?text=Fleet" alt="InnovaHycrossTaxi fleet photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;">
-      <img src="https://placehold.co/420x420/0B0B0D/FFC72C?text=Airport+Pickup" alt="Airport pickup service photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;">
-      <img src="https://placehold.co/420x420/F1EEE6/0B0B0D?text=Family+Trip" alt="Family trip in Innova Hycross taxi" style="border-radius:16px; aspect-ratio:1; object-fit:cover;">
-      <img src="https://placehold.co/420x420/1F2024/E4BE68?text=Tempo+Traveller" alt="Tempo Traveller group tour photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;">
+      <img src="https://placehold.co/420x420/1F2024/E4BE68?text=Fleet" alt="InnovaHycrossTaxi fleet photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;" loading="lazy">
+      <img src="https://placehold.co/420x420/0B0B0D/FFC72C?text=Airport+Pickup" alt="Airport pickup service photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;" loading="lazy">
+      <img src="https://placehold.co/420x420/F1EEE6/0B0B0D?text=Family+Trip" alt="Family trip in Innova Hycross taxi" style="border-radius:16px; aspect-ratio:1; object-fit:cover;" loading="lazy">
+      <img src="https://placehold.co/420x420/1F2024/E4BE68?text=Tempo+Traveller" alt="Tempo Traveller group tour photo" style="border-radius:16px; aspect-ratio:1; object-fit:cover;" loading="lazy">
     </div>
     <div class="reveal" style="text-align:center; margin-top:32px;">
       <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
@@ -639,8 +656,12 @@
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q">How much does an Innova Hycross taxi cost per km? <span class="plus"></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Outstation Innova Hycross fares start from around ₹22/km, with a driver allowance for multi-day trips. Exact pricing depends on route, trip type (one-way vs round trip) and season — share your route on WhatsApp for an exact quote.</div></div>
+        <button class="faq-q">How much does Innova Hycross taxi cost? <span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Outstation Innova Hycross fares start from around ₹25/km, with a driver allowance for multi-day trips. Exact pricing depends on route, trip type (one-way vs round trip) and season — share your route on WhatsApp for an exact quote.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I get the cheapest Innova Hycross taxi fare? <span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Round trips generally work out cheaper per km than one-way bookings, and booking a few days ahead (rather than last-minute) helps too. For the cheapest Innova Hycross taxi fare on your specific route, share your pickup, drop and travel dates on WhatsApp — we'll always quote our best available price upfront.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What is the seating capacity of the Innova Hycross? <span class="plus"></span></button>
@@ -694,24 +715,24 @@
         <div class="contact-info-card">
           <div class="contact-info-row">
             <span class="icon-box"><i class="fa-solid fa-location-dot"></i></span>
-            <div><h4>Address</h4><p>RZA-A-1/108 Vijay Enclave, Near Nav Gyan Deep Public School, New Delhi – 110045</p></div>
+            <div><h3>Address</h3><p>RZA-A-1/108 Vijay Enclave, Near Nav Gyan Deep Public School, New Delhi – 110045</p></div>
           </div>
           <div class="contact-info-row">
             <span class="icon-box"><i class="fa-solid fa-phone"></i></span>
-            <div><h4>Call Us</h4><p><a href="tel:+919650694549">+91 96506 94549</a><br><a href="tel:+918368710399">+91 83687 10399</a></p></div>
+            <div><h3>Call Us</h3><p><a href="tel:+919650694549">+91 96506 94549</a><br><a href="tel:+918368710399">+91 83687 10399</a></p></div>
           </div>
           <div class="contact-info-row">
             <span class="icon-box"><i class="fa-brands fa-whatsapp"></i></span>
-            <div><h4>WhatsApp</h4><p><a href="https://wa.me/919650694549" target="_blank" rel="noopener">Chat with us instantly</a></p></div>
+            <div><h3>WhatsApp</h3><p><a href="https://wa.me/919650694549" target="_blank" rel="noopener">Chat with us instantly</a></p></div>
           </div>
           <div class="contact-info-row">
             <span class="icon-box"><i class="fa-solid fa-clock"></i></span>
-            <div><h4>Hours</h4><p>Open 24 Hours · All 7 Days</p></div>
+            <div><h3>Hours</h3><p>Open 24 Hours · All 7 Days</p></div>
           </div>
           <div class="contact-social">
-            <a class="social-btn social-fb" href="https://www.facebook.com/innovahycrosstaxi" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a class="social-btn social-ig" href="https://www.instagram.com/innovahycrosstaxi" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a class="social-btn social-yt" href="https://www.youtube.com/@innovahycrosstaxi" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a class="social-btn social-fb" href="https://www.facebook.com/share/1CkwwrY1pN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="social-btn social-ig" href="https://www.instagram.com/innovahycrosstaxicom" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="social-btn social-yt" href="https://www.youtube.com/@INNONAHYCROSSTAXISERVICETAXISE" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
         <div class="map-frame reveal" style="margin-top:20px;">
@@ -780,15 +801,15 @@
         </a>
         <p>Delhi NCR's trusted Innova Hycross &amp; Innova Crysta taxi service — outstation trips, airport transfers, local rentals and corporate travel, available 24×7 with verified drivers.</p>
         <div class="footer-social">
-          <a class="social-btn social-fb" href="https://www.facebook.com/innovahycrosstaxi" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a class="social-btn social-ig" href="https://www.instagram.com/innovahycrosstaxi" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a class="social-btn social-yt" href="https://www.youtube.com/@innovahycrosstaxi" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a class="social-btn social-fb" href="https://www.facebook.com/share/1CkwwrY1pN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-btn social-ig" href="https://www.instagram.com/innovahycrosstaxicom" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-btn social-yt" href="https://www.youtube.com/@INNONAHYCROSSTAXISERVICETAXISE" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a class="social-btn social-wa" href="https://wa.me/919650694549" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h3>Quick Links</h3>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="fleet.html">Our Fleet</a></li>
@@ -800,7 +821,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Services</h4>
+        <h3>Services</h3>
         <ul>
           <li><a href="services.html#airport">Airport Taxi</a></li>
           <li><a href="services.html#outstation">Outstation Cabs</a></li>
@@ -812,7 +833,7 @@
       </div>
 
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <div class="contact-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>RZA-A-1/108 Vijay Enclave, Near Nav Gyan Deep Public School, New Delhi – 110045</span>
@@ -839,6 +860,9 @@
 </footer>
 
 <div class="float-stack">
+  <a href="tel:+919650694549" class="float-btn float-call" aria-label="Call InnovaHycrossTaxi">
+    <i class="fa-solid fa-phone"></i>
+  </a>
   <a href="https://wa.me/919650694549?text=Hi%20InnovaHycrossTaxi%2C%20I%27d%20like%20to%20book%20a%20cab." class="float-btn float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 190" font-family="'Bricolage Grotesque', system-ui, sans-serif">
+  <!-- icon badge -->
+  <g transform="translate(10,15) scale(0.8)">
+    <rect width="200" height="200" rx="44" fill="#0B0B0D"/>
+    <path d="M40 124 L60 76 Q66 64 80 64 L120 64 Q134 64 140 76 L160 124 L160 144 Q160 152 152 152 L140 152 Q132 152 132 144 L132 136 L68 136 L68 144 Q68 152 60 152 L48 152 Q40 152 40 144 Z" fill="#FFC72C"/>
+    <rect x="88" y="52" width="24" height="14" rx="6" fill="#0B0B0D"/>
+    <line x1="100" y1="76" x2="100" y2="124" stroke="#0B0B0D" stroke-width="2" opacity=".22"/>
+    <circle cx="64" cy="136" r="12" fill="#0B0B0D"/>
+    <circle cx="136" cy="136" r="12" fill="#0B0B0D"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="190" y="102" font-size="46" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="#0B0B0D">Innova</tspan><tspan fill="#C9962B">Hycross</tspan><tspan fill="#0B0B0D">Taxi</tspan>
+  </text>
+
+  <!-- tagline -->
+  <text x="192" y="130" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="15" letter-spacing="2.2" fill="#8B8B92">DELHI NCR · 24×7</text>
+
+  <!-- checker signature accent -->
+  <g transform="translate(192,142)">
+    <rect x="0"  y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="9"  y="0" width="9" height="9" fill="#C9962B"/>
+    <rect x="18" y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="27" y="0" width="9" height="9" fill="#C9962B"/>
+    <rect x="36" y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="45" y="0" width="9" height="9" fill="#C9962B"/>
+  </g>
+</svg>

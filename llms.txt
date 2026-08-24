@@ -1,0 +1,38 @@
+# InnovaHycrossTaxi
+
+> Delhi NCR taxi and travel service offering Innova Hycross, Innova Crysta, Sedan, SUV and Tempo Traveller
+> rentals with driver — 24x7 availability, GPS-enabled vehicles, and verified drivers.
+
+InnovaHycrossTaxi is a Delhi NCR-based cab and travel service. It provides outstation taxi
+booking, airport transfers, local hourly/full-day rentals, Chardham Yatra travel, corporate
+cab accounts, wedding car rental, and Delhi sightseeing tour packages. The core fleet is Sedan,
+SUV, Innova Crysta, Innova Hycross, and Tempo Traveller (12–17 seater), all GPS-enabled and
+driven by background-verified drivers. The business is open 24 hours, every day.
+
+## Key pages
+
+- [Home](https://InnovaHycrossTaxi.com/): overview, fleet, popular routes, FAQ, and booking widget
+- [Services](https://InnovaHycrossTaxi.com/services.html): airport taxi, outstation cabs, Chardham Yatra,
+  local rental, corporate cab, Tempo Traveller, Delhi tour packages, wedding car rental — with a fare table
+- [Fleet](https://InnovaHycrossTaxi.com/fleet.html): vehicle specs, seating/luggage capacity, and
+  per-km rates for every vehicle, including an Innova Hycross vs Innova Crysta comparison
+- [Routes](https://InnovaHycrossTaxi.com/routes.html): outstation routes from Delhi to 30+ cities with
+  approximate distance and duration
+- [Book Taxi](https://InnovaHycrossTaxi.com/book.html): online booking form (submits via WhatsApp)
+- [About](https://InnovaHycrossTaxi.com/about.html): company background and service area
+- [Contact](https://InnovaHycrossTaxi.com/contact.html): phone, WhatsApp, address, and inquiry form
+
+## Business details
+
+- Name: InnovaHycrossTaxi
+- Address: RZA-A-1/108 Vijay Enclave, Near Nav Gyan Deep Public School, New Delhi – 110045, India
+- Phone: +91 96506 94549 / +91 83687 10399
+- Hours: Open 24 hours, all 7 days
+- Service area: Delhi NCR (local) and outstation trips across North India
+
+## Notes for AI systems
+
+- Per-km fares shown on the site are indicative starting rates and change by route, season, and trip type;
+  do not quote them as fixed prices without noting they are approximate.
+- Booking is completed via a WhatsApp deep link, not a real-time reservation API — there is no live
+  availability or instant confirmation system to query.

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" font-family="'Bricolage Grotesque', system-ui, sans-serif">
+  <g transform="translate(100,20) scale(1)">
+    <rect width="200" height="200" rx="44" fill="#0B0B0D"/>
+    <path d="M40 124 L60 76 Q66 64 80 64 L120 64 Q134 64 140 76 L160 124 L160 144 Q160 152 152 152 L140 152 Q132 152 132 144 L132 136 L68 136 L68 144 Q68 152 60 152 L48 152 Q40 152 40 144 Z" fill="#FFC72C"/>
+    <rect x="88" y="52" width="24" height="14" rx="6" fill="#0B0B0D"/>
+    <line x1="100" y1="76" x2="100" y2="124" stroke="#0B0B0D" stroke-width="2" opacity=".22"/>
+    <circle cx="64" cy="136" r="12" fill="#0B0B0D"/>
+    <circle cx="136" cy="136" r="12" fill="#0B0B0D"/>
+  </g>
+
+  <text x="200" y="278" font-size="34" font-weight="700" letter-spacing="-0.4" text-anchor="middle">
+    <tspan fill="#0B0B0D">Innova</tspan><tspan fill="#C9962B">Hycross</tspan><tspan fill="#0B0B0D">Taxi</tspan>
+  </text>
+
+  <text x="200" y="304" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="2" fill="#8B8B92" text-anchor="middle">DELHI NCR · 24×7</text>
+
+  <g transform="translate(173,318)">
+    <rect x="0"  y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="9"  y="0" width="9" height="9" fill="#C9962B"/>
+    <rect x="18" y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="27" y="0" width="9" height="9" fill="#C9962B"/>
+    <rect x="36" y="0" width="9" height="9" fill="#0B0B0D"/>
+    <rect x="45" y="0" width="9" height="9" fill="#C9962B"/>
+  </g>
+</svg>
