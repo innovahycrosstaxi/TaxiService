@@ -372,7 +372,7 @@
      Until a real key is pasted in, these fields simply work as plain
      text inputs — nothing breaks, no errors, no wasted network calls.
      ===================================================================== */
-  var GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY";
+  var GOOGLE_MAPS_API_KEY = "AIzaSyBQZNiEn0lMZsVoEV5cZ_3J1wwtEJ2QnZ4";
 
   function initLocationAutocomplete() {
     var inputs = document.querySelectorAll("[data-location-input]");
