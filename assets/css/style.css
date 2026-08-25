@@ -305,6 +305,9 @@ p{ margin:0; }
 .location-suggestion-empty{ padding:10px; font-size:13px; color: var(--slate-light); text-align:center; }
 .booking-grid .btn{ height: 46px; }
 .booking-submit{ grid-column: 1 / -1; }
+.booking-email-field{ grid-column: 1 / -1; }
+.booking-submit-row{ grid-column: 1 / -1; display:flex; gap:12px; flex-wrap:wrap; }
+.booking-submit-row .btn{ flex:1 1 220px; }
 
 /* ---- Trip distance/duration estimate (Google Routes API) ---- */
 .trip-estimate{
@@ -505,6 +508,7 @@ p{ margin:0; }
 .social-ig{ background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
 .social-yt{ background: #FF0000; }
 .social-wa{ background: var(--green-wa); }
+.social-mail{ background: var(--slate); }
 
 .map-frame{ border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line); }
 .map-frame iframe{ width:100%; height:280px; border:0; display:block; }
@@ -563,6 +567,7 @@ textarea:focus{ border-color: var(--gold-safe); box-shadow: 0 0 0 3px rgba(138,1
 .float-btn i{ font-size:16px; }
 .float-wa{ background: var(--green-wa); color:#fff; }
 .float-call{ background: var(--yellow); color: var(--ink); box-shadow: 0 10px 26px -8px rgba(255,199,44,.6), 0 10px 26px -8px rgba(0,0,0,.4); }
+.float-mail{ background: var(--slate); color:#fff; }
 
 .sticky-cta-mobile{ display:none; }
 @media (max-width: 720px){

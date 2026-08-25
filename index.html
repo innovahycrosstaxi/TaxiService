@@ -18,9 +18,14 @@
 <meta property="og:url" content="https://InnovaHycrossTaxi.com/">
 <meta property="og:site_name" content="InnovaHycrossTaxi">
 <meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://InnovaHycrossTaxi.com/assets/img/fleet-hycross.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="InnovaHycrossTaxi - Innova Hycross taxi in Delhi NCR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="InnovaHycrossTaxi | Innova Hycross Taxi Service in Delhi NCR, 24x7">
 <meta name="twitter:description" content="Book Innova Hycross taxi online in Delhi NCR. 24x7 outstation cabs, airport transfers, local rental & corporate taxi with verified drivers. Call 96506-94549 or 011-4505 4201.">
+<meta name="twitter:image" content="https://InnovaHycrossTaxi.com/assets/img/fleet-hycross.webp">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230B0B0D%22/><path d=%22M20 62 L30 38 Q33 32 40 32 L60 32 Q67 32 70 38 L80 62 L80 72 Q80 76 76 76 L70 76 Q66 76 66 72 L66 68 L34 68 L34 72 Q34 76 30 76 L24 76 Q20 76 20 72 Z%22 fill=%22%23FFC72C%22/><circle cx=%2232%22 cy=%2268%22 r=%226%22 fill=%22%230B0B0D%22/><circle cx=%2268%22 cy=%2268%22 r=%226%22 fill=%22%230B0B0D%22/></svg>">
 
@@ -39,10 +44,18 @@
   "@context": "https://schema.org",
   "@type": "TaxiService",
   "name": "InnovaHycrossTaxi",
-  "image": "https://InnovaHycrossTaxi.com/assets/img/og-cover.jpg",
+  "image": "https://InnovaHycrossTaxi.com/assets/img/fleet-hycross.webp",
   "url": "https://InnovaHycrossTaxi.com",
   "telephone": "+91-9650694549",
   "priceRange": "₹₹",
+  "makesOffer": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "INR",
+    "lowPrice": "11",
+    "highPrice": "30",
+    "offerCount": "5",
+    "url": "https://InnovaHycrossTaxi.com/fleet.html"
+  },
   "contactPoint": [
     {
       "@type": "ContactPoint",
@@ -287,6 +300,13 @@
             <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" maxlength="10" required>
           </div>
         </div>
+        <div class="field booking-email-field">
+          <label for="quoteEmail">Email (optional)</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <input type="email" id="quoteEmail" name="email" placeholder="you@email.com">
+          </div>
+        </div>
         <div class="trip-estimate" data-trip-estimate>
           <span class="trip-estimate-label">Estimated trip</span>
           <span class="trip-estimate-spinner"></span>
@@ -295,7 +315,10 @@
             <span class="meter meter--light"><span data-estimate-duration>—</span></span>
           </span>
         </div>
-        <button type="submit" class="btn btn-primary booking-submit">Check Availability on WhatsApp</button>
+        <div class="booking-submit-row">
+          <button type="submit" class="btn btn-primary booking-submit">Check Availability on WhatsApp</button>
+          <button type="button" class="btn btn-outline" data-booking-email-btn><i class="fa-solid fa-envelope"></i>&nbsp; Send via Email</button>
+        </div>
         <div class="form-success" data-booking-success>
           <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
           <svg class="icon-fallback" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
@@ -749,6 +772,10 @@
             <div><h3>WhatsApp</h3><p><a href="https://wa.me/919650694549" target="_blank" rel="noopener">Chat with us instantly</a></p></div>
           </div>
           <div class="contact-info-row">
+            <span class="icon-box"><i class="fa-solid fa-envelope"></i></span>
+            <div><h3>Email</h3><p><a href="mailto:info@InnovaHycrossTaxi.com">info@InnovaHycrossTaxi.com</a></p></div>
+          </div>
+          <div class="contact-info-row">
             <span class="icon-box"><i class="fa-solid fa-clock"></i></span>
             <div><h3>Hours</h3><p>Open 24 Hours · All 7 Days</p></div>
           </div>
@@ -767,7 +794,7 @@
         <div class="form-card">
           <div class="form-success" data-form-success>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-            Thanks! Opening WhatsApp with your details now.
+            <span data-form-success-text>Thanks! Opening WhatsApp with your details now.</span>
           </div>
           <form data-contact-form>
             <div class="form-grid">
@@ -802,7 +829,10 @@
                 <textarea id="cmessage" name="message" placeholder="Tell us your pickup, drop and travel date..." required></textarea>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" style="margin-top:16px;">Send Inquiry on WhatsApp</button>
+            <div class="booking-submit-row" style="margin-top:16px;">
+              <button type="submit" class="btn btn-primary">Send Inquiry on WhatsApp</button>
+              <button type="button" class="btn btn-outline" data-contact-email-btn><i class="fa-solid fa-envelope"></i>&nbsp; Send via Email</button>
+            </div>
             <p class="form-note">We typically respond within 5–10 minutes during business hours, and within 30 minutes overnight.</p>
           </form>
         </div>
@@ -828,6 +858,7 @@
           <a class="social-btn social-ig" href="https://www.instagram.com/innovahycrosstaxicom" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a class="social-btn social-yt" href="https://www.youtube.com/@INNONAHYCROSSTAXISERVICETAXISE" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a class="social-btn social-wa" href="https://wa.me/919650694549" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a class="social-btn social-mail" href="mailto:info@InnovaHycrossTaxi.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
 
@@ -885,6 +916,9 @@
 <div class="float-stack">
   <a href="tel:+919650694549" class="float-btn float-call" aria-label="Call InnovaHycrossTaxi">
     <i class="fa-solid fa-phone"></i>
+  </a>
+  <a href="mailto:info@InnovaHycrossTaxi.com" class="float-btn float-mail" aria-label="Email InnovaHycrossTaxi">
+    <i class="fa-solid fa-envelope"></i>
   </a>
   <a href="https://wa.me/919650694549?text=Hi%20InnovaHycrossTaxi%2C%20I%27d%20like%20to%20book%20a%20cab." class="float-btn float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
