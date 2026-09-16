@@ -308,6 +308,7 @@ p{ margin:0; }
 .booking-email-field{ grid-column: 1 / -1; }
 .booking-submit-row{ grid-column: 1 / -1; display:flex; gap:12px; flex-wrap:wrap; }
 .booking-submit-row .btn{ flex:1 1 220px; }
+.hp-field{ position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
 
 /* ---- Trip distance/duration estimate (Google Routes API) ---- */
 .trip-estimate{

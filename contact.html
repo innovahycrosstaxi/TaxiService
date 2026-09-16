@@ -117,6 +117,38 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the fastest way to reach you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WhatsApp is fastest for a written quote; call us directly for urgent, same-hour bookings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I request a specific driver or car for regular trips?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — for corporate accounts and repeat customers, we can assign a dedicated driver and vehicle wherever possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you operate outside Delhi NCR too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our base is Delhi NCR, but we run outstation trips to 50+ cities across North India — see our Routes page for the full list."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#main" class="visually-hidden-focusable" style="position:absolute;left:-999px;top:0;background:#FFC72C;color:#0B0B0D;padding:10px 16px;z-index:999;border-radius:0 0 8px 0;">Skip to content</a>
@@ -234,10 +266,12 @@
       <div class="reveal reveal-delay-1">
         <div class="form-card">
           <div class="form-success" data-form-success>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <svg class="icon-fallback" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
             <span data-form-success-text>Thanks! Opening WhatsApp with your details now.</span>
           </div>
           <form data-contact-form>
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid">
               <div class="field">
                 <label for="cname">Full Name</label>
