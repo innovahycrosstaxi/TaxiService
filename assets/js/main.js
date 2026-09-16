@@ -5,7 +5,6 @@
   var WHATSAPP_NUMBER = "919650694549"; // primary number, with country code, no + or spaces
   var CALL_NUMBER = "+919650694549";
   var BUSINESS_EMAIL = "info@InnovaHycrossTaxi.com";
-  var EMAIL_API_ENDPOINT = "https://InnovaHycrossTaxi.com/api/send-mail";
 
   document.addEventListener("DOMContentLoaded", function () {
     initHeaderScroll();
@@ -19,6 +18,7 @@
     initContactForm();
     initYear();
     initTabSwap();
+    initTripSubtypeToggle();
     initFloatStackCollision();
     initLocationAutocomplete();
     initTripDistanceEstimate();
@@ -228,18 +228,6 @@
     return "mailto:" + BUSINESS_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(message);
   }
 
-  // POSTs to the Cloudflare Worker; resolves true on success, false on any failure
-  // (network error, non-2xx, or the honeypot silently short-circuiting on the server).
-  function submitViaApi(payload) {
-    return fetch(EMAIL_API_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-      .then(function (res) { return res.ok; })
-      .catch(function () { return false; });
-  }
-
   function getVal(form, name) {
     var el = form.querySelector('[name="' + name + '"]');
     return el ? el.value.trim() : "";
@@ -254,6 +242,12 @@
     var mobile = getVal(form, "mobile");
     var email = getVal(form, "email");
     var tripType = form.getAttribute("data-trip-type") || "Outstation";
+    var tripTypeLine = tripType;
+    if (tripType === "Outstation") {
+      tripTypeLine = "Outstation (" + (form.getAttribute("data-outstation-type") || "One Way") + ")";
+    } else if (tripType === "Airport") {
+      tripTypeLine = "Airport (" + (form.getAttribute("data-airport-type") || "Airport Drop") + ")";
+    }
     var estimateLine = "";
     var estimateBox = form.querySelector("[data-trip-estimate]");
     if (estimateBox && estimateBox.classList.contains("is-visible") && !estimateBox.classList.contains("is-loading")) {
@@ -266,7 +260,7 @@
 
     return (
       "Hi InnovaHycrossTaxi, I'd like to book a cab.\n" +
-      "Trip type: " + tripType + "\n" +
+      "Trip type: " + tripTypeLine + "\n" +
       "Pickup: " + pickup + "\n" +
       (drop ? "Drop: " + drop + "\n" : "") +
       estimateLine +
@@ -316,54 +310,19 @@
           form.reportValidity();
           return;
         }
+        var msg = buildBookingMessage(form);
+        var mailLink = buildMailLink("Instant Quote Request - InnovaHycrossTaxi", msg);
+
         var successBox = form.querySelector("[data-booking-success]");
-        var textEl = successBox ? successBox.querySelector("[data-booking-success-text]") : null;
-
-        function showSuccess(text, isFallback) {
-          if (!successBox) return;
+        if (successBox) {
+          var textEl = successBox.querySelector("[data-booking-success-text]");
           clearTimeout(successBox._hideTimer);
-          if (textEl) textEl.innerHTML = text;
-          successBox.classList.toggle("is-fallback", !!isFallback);
+          textEl.textContent = "Opening your email app with your trip details…";
+          successBox.classList.remove("is-fallback");
           successBox.classList.add("is-shown");
-          if (!isFallback) {
-            successBox._hideTimer = setTimeout(function () { successBox.classList.remove("is-shown"); }, 6000);
-          }
+          successBox._hideTimer = setTimeout(function () { successBox.classList.remove("is-shown"); }, 6000);
         }
-
-        var estimateBox = form.querySelector("[data-trip-estimate]");
-        var hasEstimate = estimateBox && estimateBox.classList.contains("is-visible") && !estimateBox.classList.contains("is-loading");
-
-        var payload = {
-          type: "quote",
-          tripType: form.getAttribute("data-trip-type") || "Outstation",
-          pickup: getVal(form, "pickup"),
-          drop: getVal(form, "drop"),
-          datetime: getVal(form, "datetime"),
-          carType: getVal(form, "carType"),
-          mobile: getVal(form, "mobile"),
-          email: getVal(form, "email"),
-          website: getVal(form, "website"), // honeypot
-          estimateDistance: hasEstimate ? estimateBox.querySelector("[data-estimate-distance]").textContent : "",
-          estimateDuration: hasEstimate ? estimateBox.querySelector("[data-estimate-duration]").textContent : "",
-        };
-
-        emailBtn.disabled = true;
-        showSuccess("Sending your quote request…", true);
-
-        submitViaApi(payload).then(function (ok) {
-          emailBtn.disabled = false;
-          if (ok) {
-            showSuccess("Thanks! Your quote request has been emailed to our team.", false);
-          } else {
-            var mailLink = buildMailLink("Instant Quote Request - InnovaHycrossTaxi", buildBookingMessage(form));
-            showSuccess(
-              'We couldn\'t reach our server just now — ' +
-              '<a href="' + mailLink + '">tap here to send it from your email app instead</a>, ' +
-              'or call <a href="tel:+919650694549">96506-94549</a>.',
-              true
-            );
-          }
-        });
+        window.location.href = mailLink;
       });
     }
   }
@@ -373,6 +332,8 @@
     var tabs = document.querySelectorAll("[data-trip-tab]");
     if (!tabs.length) return;
     var dropField = document.querySelector("[data-drop-field]");
+    var outstationSubtypeField = document.querySelector("[data-outstation-subtype-field]");
+    var airportSubtypeField = document.querySelector("[data-airport-subtype-field]");
     var form = document.querySelector("[data-booking-form]");
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
@@ -391,6 +352,27 @@
             if (di) di.required = true;
           }
         }
+        if (outstationSubtypeField) outstationSubtypeField.style.display = type === "Outstation" ? "" : "none";
+        if (airportSubtypeField) airportSubtypeField.style.display = type === "Airport" ? "" : "none";
+      });
+    });
+  }
+
+  /* ---------- Outstation One Way/Round Trip + Airport Pickup/Drop sub-toggle ----------
+     Each .tab-row that carries data-subtype-row="<attr>" is its own independent toggle
+     group; clicking a button inside it sets <attr> on the booking form (read by
+     buildBookingMessage above) and only de-activates siblings within that same row. */
+  function initTripSubtypeToggle() {
+    var form = document.querySelector("[data-booking-form]");
+    document.querySelectorAll("[data-subtype-row]").forEach(function (row) {
+      var attrName = row.getAttribute("data-subtype-row");
+      var btns = row.querySelectorAll("[data-trip-subtype]");
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          btns.forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          if (form) form.setAttribute(attrName, btn.getAttribute("data-trip-subtype"));
+        });
       });
     });
   }
@@ -442,46 +424,15 @@
           form.reportValidity();
           return;
         }
-
-        function showSuccess(text, isFallback) {
-          if (!success) return;
-          clearTimeout(success._hideTimer);
-          if (successText) successText.innerHTML = text;
-          success.classList.toggle("is-fallback", !!isFallback);
+        var msg = buildContactMessage(form);
+        var mailLink = buildMailLink("New Inquiry - InnovaHycrossTaxi", msg);
+        if (success) {
+          if (successText) successText.textContent = "Thanks! Opening your email app with your details now.";
           success.classList.add("is-shown");
-          if (!isFallback) {
-            success._hideTimer = setTimeout(function () { success.classList.remove("is-shown"); }, 6000);
-          }
+          form.reset();
+          setTimeout(function () { success.classList.remove("is-shown"); }, 6000);
         }
-
-        var payload = {
-          type: "enquiry",
-          name: getVal(form, "name"),
-          phone: getVal(form, "phone"),
-          email: getVal(form, "email"),
-          service: getVal(form, "service"),
-          message: getVal(form, "message"),
-          website: getVal(form, "website"), // honeypot
-        };
-
-        emailBtn.disabled = true;
-        showSuccess("Sending your inquiry…", true);
-
-        submitViaApi(payload).then(function (ok) {
-          emailBtn.disabled = false;
-          if (ok) {
-            showSuccess("Thanks! Your inquiry has been emailed to our team.", false);
-            form.reset();
-          } else {
-            var mailLink = buildMailLink("New Inquiry - InnovaHycrossTaxi", buildContactMessage(form));
-            showSuccess(
-              'We couldn\'t reach our server just now — ' +
-              '<a href="' + mailLink + '">tap here to send it from your email app instead</a>, ' +
-              'or call <a href="tel:+919650694549">96506-94549</a>.',
-              true
-            );
-          }
-        });
+        window.location.href = mailLink;
       });
     }
   }
